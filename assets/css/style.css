@@ -1,0 +1,38 @@
+.form-group {
+    padding: 5px;
+    margin: 5px;
+    
+}
+
+.container {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.container .card-header {
+    background-color: navy;
+    color: white;
+}
+
+.jumbotron {
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    opacity: 0.75;
+}
+
+.container .jumbotron {
+    background-color: navy;
+    color: white;
+
+}
+
+button {
+    background-color: navy;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    align-content: center;
+}
+
+.container .card {
+    opacity: 0.75;
+}
