@@ -4,7 +4,8 @@
 <head>
     <title>Train Scheduler</title>
     <!-- font link -->
-    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet"> 
+
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">        
     <!-- boostrap link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
@@ -14,7 +15,7 @@
     <!-- jquery link -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <!-- moment.js link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!-- firebase link -->
     <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
 </head>
@@ -25,8 +26,9 @@
             <div class="col-md-12">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 class="display-4">Train Schedule</h1>
-                        <p class="lead">Find yo train hurr.</p>
+                        <h1 class="display-4">Land of Fiction</h1>
+                        <p class="lead">Train Schedules</p>
+                        The current time is: <span id="current-time"></div>
                     </div>
                 </div>
             </div>
@@ -38,69 +40,52 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-header">
-                        <strong>Current Trains Running</strong>
+                        <div id="current"><strong>Current Trains Running</strong></div>
                     </div>
                 </div>
             </div>
-            
-            <br>
-
-            <div class="row">
-                <div class="col">
-                    <strong>Train Name</strong>
-                </div>
-                <div class="col">
-                    <strong>Destination</strong>
-                </div>
-                <div class="col">
-                    <strong>Frequency</strong>
-                </div>
-                <div class="col">
-                    <strong>Next Arrival</strong>
-                </div>
-                <div class="col">
-                    <strong>Minutes Away</strong>
-                </div>
-            </div>
-
-            <tbody>
+        
+            <div class="card-header">
                 <div class="row">
                     <div class="col">
-                        <div id="names"></div>
+                        <strong>Train Name</strong>
                     </div>
                     <div class="col">
-                        <div id="destination"></div>
+                        <strong>Destination</strong>
                     </div>
                     <div class="col">
-                        <div id="frequency"></div>
+                        <strong>Frequency</strong>
                     </div>
                     <div class="col">
-                        <div id="next"></div>
+                        <strong>Next Train</strong>
                     </div>
                     <div class="col">
-                        <div id="minAway"></div>
+                        <strong>Minutes Away</strong>
                     </div>
                 </div>
-            </tbody>
+            </div>
+                
+            <div class="card-body">
+                <tbody class="newTrains">
+                    <div class="row">
+                        <div class="col">
+                            <div id="name"></div>
+                        </div>
+                        <div class="col">
+                            <div id="destination"></div>
+                        </div>
+                        <div class="col">
+                            <div id="frequency"></div>
+                        </div>
+                        <div class="col">
+                            <div id="next"></div>
+                        </div>
+                        <div class="col">
+                            <div id="minAway"></div>
+                        </div>
+                    </div>
+                </tbody>
 
-            <br>
-
-            <div class="row">
-                <div class="col">
-                    test
-                </div>
-                <div class="col">
-                    test
-                </div>
-                <div class="col">
-                    test
-                </div>
-                <div class="col">
-                    test
-                </div>
-                <div class="col">
-                    test
-                </div>
             </div>
         </div>
     </div>
@@ -117,49 +102,51 @@
                         </div>
                     </div>
                 </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="train name">Train Name</label>
-                        <input type="text" class="form-control" id="name-input">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="train name">Train Name</label>
+                                <input type="text" class="form-control" id="name-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="destination">Destination</label>
+                                <input type="text" class="form-control" id="destination-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">         
+                            <div class="form-group">
+                                <label for="First Train">First Train Departure</label>
+                                <input type="time" class="form-control" id="first-input">
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="row">   
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="Frequency">Frequency (minutes)</label>
+                                <input type="text" class="form-control" id="frequency-input">
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="add-train">Submit</button>
+                        </div> 
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="destination">Destination</label>
-                        <input type="text" class="form-control" id="destination-input">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">         
-                    <div class="form-group">
-                        <label for="First Train">First Train Departure</label>
-                        <input type="time" class="form-control" id="first-train-input">
-                    </div>
-                </div>  
-            </div>
-            <div class="row">   
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="Frequency">Frequency</label>
-                        <input type="text" class="form-control" id="frequency-input">
-                    </div>
-                </div>
-            </div> 
-            <div class="row">
-                <div class="col-md-12">
-                    <button id="submit">Submit</button>
-                </div> 
             </div>
         </form>
     </div>
 
 
-    <script src="../javascript/app.js"></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
