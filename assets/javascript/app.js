@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    t = setInterval(tick,60000);
+});
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyB1KAko0WIgaqwLbOu0xaMZjz6yJ1Iqw7U",
@@ -46,7 +50,7 @@ $("#frequency-input").val("");
 
 // firebase event for adding trains to database in rows
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-    // console.log(childSnapshot.val());
+// console.log(childSnapshot.val());
 
 var trainName = childSnapshot.val().name;
 var trainDest = childSnapshot.val().destination;
@@ -57,11 +61,6 @@ var trainFreq = childSnapshot.val().frequency;
 // console.log(trainDest);
 // console.log(trainFirst);
 // console.log(trainFreq);
-
-
-// TODO
-// calculate when the next trains will arrive and how many minutes away 
-
 
 
 // grabs current time
@@ -80,18 +79,17 @@ console.log("difference = " + difference);
 var remainder = difference % trainFreq;
 var minutesLeft = trainFreq - remainder;
 console.log("minutes left =  " + minutesLeft);
-
 // console.log(remainder);
 
 var nextTrains = moment().add(minutesLeft, "minutes");
 console.log("arrival = " + moment(nextTrains).format("hh:mm"));
 
 
+// HTML
 // updating our current time in the html
 $("#current-time").text(moment(currentTime).format("hh:mmA"));
 
 // updating our html table
-
 $("#name").append("<tr><td>" + trainName + "</tr></td>");
 $("#destination").append("<tr><td>" + trainDest + "</tr></td>");
 $("#frequency").append("<tr><td>" + trainFreq + " minutes" + "</tr></td>");

@@ -1,37 +1,51 @@
-.form-group {
-    padding: 5px;
-    margin: 5px;
-    
+
+body {
+    background-image: url("../images/background.jpeg");
 }
 
 .container {
     font-family: 'Cormorant Garamond', serif;
 }
 
-.container .card-header {
-    background-color:rgb(3, 10, 32);
-    color: white;
-    font-size: 1.5rem;
-    border-bottom: solid white;
-}
-
-.container .card-body {
-    background-color:rgb(3, 10, 32);
-    color: white;
-    font-size: 1rem;
-}
-
-
 .jumbotron {
     font-family: 'Cormorant Garamond', serif;    
     text-align: center;
     opacity: 0.75;
+    border: 1px solid white;
+    padding: 1rem 2rem;
 }
 
 .container .jumbotron {
     background-color: rgb(3, 10, 32);
     color: white;
 
+}
+
+.container .card-header {
+    background-color:rgb(3, 10, 32);
+    color: white;
+    font-size: 1.5rem;
+    border-bottom: 1px solid white;
+}
+
+.container .card-body {
+    background-color:rgb(3, 10, 32);
+    color: white;
+    font-size: 1rem;
+    line-height: 2.5;
+}
+
+.container .card {
+    opacity: 0.75;
+}
+
+.form-group {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.name, .destination, .frequency, .next, .minAway {
+    border-bottom: 1px solid gray;
 }
 
 #add-train {
@@ -42,9 +56,6 @@
     align-content: center;
 }
 
-.container .card {
-    opacity: 0.75;
-}
 
 #current {
     text-align: center;
@@ -52,6 +63,3 @@
     color: white;
 }
 
-body {
-    background-image: url("../images/background.jpeg");
-}
